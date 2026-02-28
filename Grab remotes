@@ -1,0 +1,1 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DiegoRRQ/Diego-Scanner/refs/heads/main/main"))()
