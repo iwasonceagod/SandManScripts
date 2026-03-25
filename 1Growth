@@ -1,0 +1,168 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+local lp = Players.LocalPlayer
+
+-- ==================== WINDOW ====================
+local Window = Rayfield:CreateWindow({
+   Name = "SandMan's 1 Click = 1 Growth Hub",
+   LoadingTitle = "Loaded",
+   LoadingSubtitle = "by Mr.Sandman",
+   ConfigurationSaving = {
+      Enabled = true,
+      FolderName = "SandManHub",
+      FileName = "GrowthScript"
+   },
+   KeySystem = false
+})
+
+-- ==================== MAIN TAB ====================
+local MainTab = Window:CreateTab("🔥 Main", 4483362458)
+
+MainTab:CreateSection("Get Max Level")
+
+local getMaxLevel = false
+
+MainTab:CreateToggle({
+   Name = "⭐ Get Max Level",
+   CurrentValue = false,
+   Callback = function(Value)
+      getMaxLevel = Value
+      if Value then
+         Rayfield:Notify({Title = "Get Max Level ENABLED", Duration = 5})
+         task.spawn(function()
+            while getMaxLevel do
+               local args = {
+                  "Gift1"
+               }
+               ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("ClaimItem"):FireServer(unpack(args))
+               task.wait(0)
+            end
+         end)
+      else
+         Rayfield:Notify({Title = "Get Max Level DISABLED", Duration = 5})
+      end
+   end
+})
+
+MainTab:CreateSection("Get Strength")
+
+local getStrength = false
+
+MainTab:CreateToggle({
+   Name = "💪 Get Strength",
+   CurrentValue = false,
+   Callback = function(Value)
+      getStrength = Value
+      if Value then
+         Rayfield:Notify({Title = "Get Strength ENABLED", Duration = 5})
+         task.spawn(function()
+            while getStrength do
+               local args = {
+                  "Gift8"
+               }
+               ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("ClaimItem"):FireServer(unpack(args))
+               task.wait(0)
+            end
+         end)
+      else
+         Rayfield:Notify({Title = "Get Strength DISABLED", Duration = 5})
+      end
+   end
+})
+
+MainTab:CreateSection("Get Rebirths")
+
+local getRebirths = false
+
+MainTab:CreateToggle({
+   Name = "♻️ Get Rebirths",
+   CurrentValue = false,
+   Callback = function(Value)
+      getRebirths = Value
+      if Value then
+         Rayfield:Notify({Title = "Get Rebirths ENABLED", Duration = 5})
+         task.spawn(function()
+            while getRebirths do
+               local args = {
+                  "Gift5"
+               }
+               ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("ClaimItem"):FireServer(unpack(args))
+               task.wait(0)
+            end
+         end)
+      else
+         Rayfield:Notify({Title = "Get Rebirths DISABLED", Duration = 5})
+      end
+   end
+})
+
+MainTab:CreateSection("Get Wins")
+
+local getWins = false
+
+MainTab:CreateToggle({
+   Name = "🏆 Get Wins",
+   CurrentValue = false,
+   Callback = function(Value)
+      getWins = Value
+      if Value then
+         Rayfield:Notify({Title = "Get Wins ENABLED", Duration = 5})
+         task.spawn(function()
+            while getWins do
+               local args = {
+                  "Gift6"
+               }
+               ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("ClaimItem"):FireServer(unpack(args))
+               task.wait(0)
+            end
+         end)
+      else
+         Rayfield:Notify({Title = "Get Wins DISABLED", Duration = 5})
+      end
+   end
+})
+
+MainTab:CreateSection("Get Strength (Main)")
+
+local getStrengthMain = false
+
+MainTab:CreateToggle({
+   Name = "💪 Get Strength (Main)",
+   CurrentValue = false,
+   Callback = function(Value)
+      getStrengthMain = Value
+      if Value then
+         Rayfield:Notify({Title = "Get Strength (Main) ENABLED", Duration = 5})
+         task.spawn(function()
+            while getStrengthMain do
+               local args = {
+                  {
+                     channel = "click",
+                     args = {}
+                  }
+               }
+               ReplicatedStorage:WaitForChild("NetworkRemoteObjects"):WaitForChild("ClientEvent"):FireServer(unpack(args))
+               task.wait(0)
+            end
+         end)
+      else
+         Rayfield:Notify({Title = "Get Strength (Main) DISABLED", Duration = 5})
+      end
+   end
+})
+
+-- ==================== DESTROY BUTTON ====================
+MainTab:CreateButton({
+   Name = "Destroy GUI",
+   Callback = function()
+      Rayfield:Destroy()
+   end
+})
+
+Rayfield:Notify({
+   Title = "Hub Updated",
+   Content = "All 'Inf' changed to 'Get'",
+   Duration = 8
+})
